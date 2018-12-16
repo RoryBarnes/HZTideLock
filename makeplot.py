@@ -17,6 +17,7 @@ PI = 3.1415926535
 SIGMA = 5.6704e-5       # Stefan-Boltzmann constant in cgs units
 
 # HZ boundaries from Kopparapu et al. (2013)
+# Note that vplanet could be used to gather these limits with the HZLim* output parameters
 def HabitableZone(lum,teff,lim):
     seff = [0 for j in range(6)]
     seffsun = [0 for j in range(6)]
@@ -114,6 +115,7 @@ iSemi=0
 
 for dir in dirs:
     if dir != "0":  # WTF?
+        print(dir)
         cmd = "cd "+dir+"; vplanet vpl.in >& output"
         subp.call(cmd, shell=True)
         # At this point the log file has been generated
@@ -143,7 +145,6 @@ for dir in dirs:
         for line in forw:
             words=line.split()
             tsync[iStar][iSemi] = np.log10(float(words[0]))
-        print(dir,semi[iSemi],star[iStar],iStar,tsync[iStar][iSemi])
         iSemi += 1
         if (iSemi == nsemi):
         # New line in semi
@@ -151,10 +152,6 @@ for dir in dirs:
             iSemi = 0
 
 # Arrays ecc,obl,heat now contain the data to make the figure
-
-print(star)
-print(semi)
-
 
 msmin=0.07      # Minimum stellar mass in solar units
 msmax=1.01     # Maximum stellar mass in solar units
@@ -212,12 +209,9 @@ ContSet = plt.contour(semi,star,tsync,5,colors='black',linestyles='solid',
                       levels=[6,7,8,9,10],linewidths=3)
 plt.clabel(ContSet,fmt="%.0f",inline=True,fontsize=18)
 
-# Io's heat flux is 1.5-3 W/m^2. After some fussing, this choice of contour matches that range.
-#plt.contour(ecc,obl,heat,5,colors=vpl.colors.orange,linestyles='solid',
-
 plt.tight_layout()
 
 if (sys.argv[1] == 'pdf'):
-    plt.savefig('HZSync.pdf')
+    plt.savefig('HZTideLock.pdf')
 if (sys.argv[1] == 'png'):
-    plt.savefig('HZSync.png')
+    plt.savefig('HZTideLock.png')
