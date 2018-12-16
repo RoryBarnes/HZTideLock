@@ -3,14 +3,14 @@ HZTideLock
 
 Timescale for a terrestrial exoplanet in the habitable zone (HZ) to tidally lock
  according the the eqtide-CPL model from 
-[vplanet](https://github.com/VirtualPlanetaryLaboratory/vplanet>).
+[vplanet](https://github.com/VirtualPlanetaryLaboratory/vplanet).
 
 
 - **Date**              12/15/18
 - **Author**            Rory Barnes
 - **Modules**           eqtide
 - **Approx. runtime**   3 minutes
-- **Source code**       [vplanet](https://github.com/VirtualPlanetaryLaboratory/vplanet>)
+- **Source code**       [vplanet](https://github.com/VirtualPlanetaryLaboratory/vplanet)
 
 
 This example calculates the timescale for a 1 Earth-mass, 1 Earth-radius terrestrial
