@@ -1,0 +1,27 @@
+# Planet's Properties
+# Template for vspace
+sName		    planet		   # Body's name
+saModules   eqtide   # Modules to apply to this body
+
+# Physical Parameters
+# Mass and radius of Io from https://ssd.jpl.nasa.gov/?sat_phys_par (18 Jul 2018)
+dMass		     -1  # Mass, negative -> Earth masses
+dRadius      -1  # Radius, negatice -> Earth radii
+dRadGyra	   0.27	   # Radius of gyration (moment of inertia constant)
+# Eqtide will override dRotPeriod with bForceEqSpin
+dRotPeriod   -1.0   # Rotation period (-1 -> days)
+# dObliquity will be modified vspace
+dObliquity   23.5      # Obliquity
+
+# Orbital Parameters, from https://ssd.jpl.nasa.gov/?sat_elem (18 Jul 2018)
+dEcc          0.05 # Eccentricity (vspace parameter)
+#dSemi         -0.2  # Semi-major axis (negative for AU)
+
+# EQTIDE Parameters, from Lainey (2016)
+dTidalQ       12   # Tidal Q (assumed)
+dK2           0.3   # Love Number of degree 2, calculated k2/Q = 0.015 (Seems large!)
+saTidePerts   star   # Name of tidal perturber (only central body may have >1)
+bHaltSyncRot		1
+dMaxLockDiff  0.01
+
+saOutputOrder Time -RotPer -OrbPer obliq

@@ -1,0 +1,11 @@
+srcfolder  .
+destfolder data
+trialname  tsync
+
+file   vpl.in
+
+file   star.in
+dMass [0.075,1,0.01] m
+
+file   planet.in
+dSemi  [0.001,1,0.01] a
