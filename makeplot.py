@@ -206,7 +206,7 @@ plt.xlim(0.01,1)
 plt.ylim(0.075,1)
 
 ContSet = plt.contour(semi,star,tsync,5,colors='black',linestyles='solid',
-                      levels=[6,7,8,9,10],linewidths=3)
+                      levels=[4,5,6,7,8,9,10],linewidths=3)
 plt.clabel(ContSet,fmt="%.0f",inline=True,fontsize=18)
 
 plt.tight_layout()
